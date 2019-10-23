@@ -13,7 +13,7 @@ defmodule GoogleLucky.Application do
 
     children =
       if heroku_name = Application.get_env(:google_lucky, :heroku_name) do
-        [children | [{GoogleLucky.HerokuPing, heroku_name}]]
+        children ++ [{GoogleLucky.HerokuPing, heroku_name}]
       else
         children
       end
