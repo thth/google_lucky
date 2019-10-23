@@ -1,12 +1,13 @@
 defmodule GoogleLucky.HerokuPing do
   use GenServer
 
-  def start_link(url) do
-    GenServer.start_link(__MODULE__, url)
+  def start_link(heroku_name) do
+    GenServer.start_link(__MODULE__, heroku_name)
   end
 
   @impl true
-  def init(url) do
+  def init(heroku_name) do
+    url = "https://#{heroku_name}.herokuapp.com"
     loop()
     {:ok, url}
   end
