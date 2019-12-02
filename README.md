@@ -18,7 +18,7 @@ As the [Google CSE API](https://developers.google.com/custom-search/v1/overview#
 - **Chrome:**
   - in `chrome://settings/searchEngines` add `[url]/q=%s`
 - **Firefox:**
-  1. create a [`manifest.json`](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Your_first_WebExtension) with [`"chrome_settings_overrides"`](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/chrome_settings_overrides), `"search_url": "[url]/?q={searchTerms}"`
+  1. create a [`manifest.json`](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Your_first_WebExtension) with [`"chrome_settings_overrides"`](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/chrome_settings_overrides), `"search_url": "https://[url]/?q={searchTerms}"`
   2. [add an ID and get the add-on signed](https://extensionworkshop.com/documentation/publish/distribute-sideloading/); follow the instructions to sideload the search engine add-on
 
 ## Why?
