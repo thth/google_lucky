@@ -14,6 +14,13 @@ As the [Google CSE API](https://developers.google.com/custom-search/v1/overview#
 
     If deploying on a free Heroku instance (which requires credit card information to have enough free dyno hours for 24/7 monthly uptime), set the `GOOGLE_HEROKU_NAME` variable to the name of your heroku app for the server to ping itself to stay awake.
 
+## Use
+- **Chrome:**
+  - in `chrome://settings/searchEngines` add `[url]/q=%s`
+- **Firefox:**
+  1. create a [`manifest.json`](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Your_first_WebExtension) with [`"chrome_settings_overrides"`](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/chrome_settings_overrides), `"search_url": "[url]/?q={searchTerms}"`
+  2. [add an ID and get the add-on signed](https://extensionworkshop.com/documentation/publish/distribute-sideloading/); follow the instructions to sideload the search engine add-on
+
 ## Why?
 Sometimes, we know the exact webpage we want to navigate to, but either we don't know the URL, or it's too tedious to type in the URL manually.
 
