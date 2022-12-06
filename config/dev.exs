@@ -1,16 +1,19 @@
-use Mix.Config
+import Config
 
 # For development, we disable any cache and enable
 # debugging and code reloading.
 #
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we use it
-# with webpack to recompile .js and .css sources.
+# with esbuild to bundle .js and .css sources.
 config :google_lucky, GoogleLuckyWeb.Endpoint,
-  http: [port: 4000],
-  debug_errors: true,
-  code_reloader: true,
+  # Binding to loopback ipv4 address prevents access from other machines.
+  # Change to `ip: {0, 0, 0, 0}` to allow access from other machines.
+  http: [ip: {127, 0, 0, 1}, port: 4000],
   check_origin: false,
+  code_reloader: true,
+  debug_errors: true,
+  secret_key_base: "O/ZFEk7shhOzFsWGKHUadvAxa9xyh7m4/J+podysdAH5pp/ysFmf7XUtXHSxy66W",
   watchers: []
 
 # ## SSL Support

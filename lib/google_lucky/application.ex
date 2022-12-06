@@ -5,18 +5,18 @@ defmodule GoogleLucky.Application do
 
   use Application
 
+  @impl true
   def start(_type, _args) do
-    # List all child processes to be supervised
     children = [
+      # Start the Telemetry supervisor
+      GoogleLuckyWeb.Telemetry,
+      # Start the PubSub system
+      {Phoenix.PubSub, name: GoogleLucky.PubSub},
+      # Start the Endpoint (http/https)
       GoogleLuckyWeb.Endpoint
+      # Start a worker by calling: GoogleLucky.Worker.start_link(arg)
+      # {GoogleLucky.Worker, arg}
     ]
-
-    children =
-      if heroku_name = Application.get_env(:google_lucky, :heroku_name) do
-        children ++ [{GoogleLucky.HerokuPing, heroku_name}]
-      else
-        children
-      end
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
@@ -26,6 +26,7 @@ defmodule GoogleLucky.Application do
 
   # Tell Phoenix to update the endpoint configuration
   # whenever the application is updated.
+  @impl true
   def config_change(changed, _new, removed) do
     GoogleLuckyWeb.Endpoint.config_change(changed, removed)
     :ok

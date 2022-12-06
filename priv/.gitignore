@@ -1,0 +1,3 @@
+# this puts /priv into git as an empty dir; needed because fly.io errors when deploying phoenix apps without /priv
+*
+!.gitignore

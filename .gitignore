@@ -22,9 +22,8 @@ erl_crash.dump
 # Ignore package tarball (built via "mix hex.build").
 google_lucky-*.tar
 
-# Since we are building assets from assets/,
-# we ignore priv/static. You may want to comment
-# this depending on your deployment strategy.
-/priv/static/
-
 /config/dev.secret.exs
+
+Dockerfile
+fly.toml
+.dockerignore
